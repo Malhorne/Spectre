@@ -17,7 +17,7 @@ uint8_t unused1[64];
 uint8_t array1[160] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 };
 uint8_t unused2[64];
 uint8_t array2[256 * 512];
-char *secret = "The password is Skywalker!";
+char *secret = "The mighty password is Luke Skywalker!!!";
 uint8_t temp = 0;
 /*  Used so compiler won’t optimize out victim_function() */
 void victim_function(size_t x) {
@@ -28,7 +28,7 @@ void victim_function(size_t x) {
 /* *******************************************************************
  * Analysis code
  * ********************************************************************/
-#define CACHE_HIT_THRESHOLD (80)
+#define CACHE_HIT_THRESHOLD (45)
 /*  assume cache hit if time <= threshold */
 /*  Report best guess in value[0] and runner-up in value[1] */
 void readMemoryByte(size_t malicious_x, uint8_t value[2], int score[2]) {
